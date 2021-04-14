@@ -51,11 +51,11 @@ Name: producer
 Navigate to the S3 home page and create a new bucket  
 
 Bucket 1  
->Name: unprocessed-bucket
+>Name: unprocessed-bucket  
 >Region: us-east-1
 
 Bucket 2
->Name: processed-bucker
+>Name: processed-bucker  
 >Region: us-east-1
 
 **Note: if you use another name or region you will need to update the name in the Producer lambda & Labeler lambda source code**
