@@ -24,3 +24,38 @@ The included command-line tool allows you up upload a local file directly from y
 **Simple Queue Service (SQS)** queue which queues the files for processing
 
 **Labeler** lambda function that calls AWS Rekognition on the queued files
+
+## Setup
+Follow these instructions to set up this pipeline on your own
+
+### Create an IAM Role
+Navigate to the IAM home page and select "Roles"
+
+Create a new role for Lambda
+
+On the permissions page select the following access policies:
+
+![alt text](https://github.com/malcolmsfraser/Serverless-Pipeline/blob/main/Images/IamRoles.png)
+
+Create role (remember the name for later)
+
+### Create an SQS Queue
+Navigate to the SQS home page and create a new queue
+
+Name: producer
+
+**Note: if you use another name you will need to update the name in the Producer lambda source code**
+
+![alt text](https://github.com/malcolmsfraser/Serverless-Pipeline/blob/main/Images/UpdateProducer.png)
+### Create an S3 Bucket
+Navigate to the S3 home page and create a new bucket  
+
+Bucket 1  
+>Name: unprocessed-bucket
+>Region: us-east-1
+
+Bucket 2
+>Name: processed-bucker
+>Region: us-east-1
+
+**Note: if you use another name or region you will need to update the name in the Producer lambda & Labeler lambda source code**
