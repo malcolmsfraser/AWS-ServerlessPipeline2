@@ -14,12 +14,12 @@ deploy_producer:
 	cd producer2.0/hello_world/; \
 		pylint --disable=R,C,W1203,W0311 *.py;
 	cd producer2.0; \
-		sam build --use-container; \
+		sam build; \
 		sam deploy --config-file samconfig.toml --no-confirm-changeset
 		
 deploy_labeler:
 	cd labeler/hello_world/; \
 		pylint --disable=R,C,W1203,W0311 *.py;
 	cd labeler/; \
-		sam build --use-container; \
+		sam build; \
 		sam deploy --config-file samconfig.toml --no-confirm-changeset

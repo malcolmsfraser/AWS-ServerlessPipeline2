@@ -185,4 +185,4 @@ def lambda_handler(event, context):
 	LOG.info(f'Computer vision stage complete: {df.to_dict()}')
 	
 	# Write result to S3
-	write_s3(df=df, in_bucket=BUCKET, out_bucket=LABEL_BUCKET, image_names=image_names)
+	write_s3(df=df, in_bucket=BUCKET, out_bucket=LABEL_BUCKET, image_names=image_names) #test comment

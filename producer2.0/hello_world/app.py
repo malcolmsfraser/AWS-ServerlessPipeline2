@@ -80,4 +80,4 @@ def lambda_handler(event, context):
 	
 	extra_logging = {'bucket':BUCKET, 'queue': QUEUE}
 	LOG.info(f'event{event}, context {context}', extra = extra_logging)
-	send_emissions(bucket=BUCKET, queue_name=QUEUE)
+	send_emissions(bucket=BUCKET, queue_name=QUEUE) # test comment
