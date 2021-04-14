@@ -122,7 +122,7 @@ def delete_unprocessed(bucket, image_names):
 		s3_resource = boto3.resource('s3')
 		LOG.info(f'Deleting image {image_name} from unprocessed folder')
 		response = s3_resource.Object(bucket, image_name).delete()
-		LOG.info(f'Image {image_name} deleted')
+		LOG.info(f'Image {image_name} deleted.\nResponse: {response}')
 		return None
 	
 def copy_processed(bucket, image_names):
@@ -131,7 +131,7 @@ def copy_processed(bucket, image_names):
 		s3_resource = boto3.resource('s3')
 		LOG.info(f'Moving image {image_name} to processed folder')
 		response = s3_resource.Object(bucket, f'processed/{image_name}').copy_from(CopySource=f'unprocessed-bucket/{image_name}')
-		LOG.info(f'Image {image_name} copied')
+		LOG.info(f'Image {image_name} copied.\nResponse: {response}')
 		return None
 
 def write_s3(df, in_bucket, out_bucket, image_names):
@@ -162,10 +162,7 @@ def lambda_handler(event, context):
 	
 	# Process Queue
 	for record in event['Records']:
-		"""
-		Generate list of images
-		Delete queue messages
-		"""
+		# Generate list of images and Delete queue messages
 		image = json.loads(record['body'])
 
 		# Capture for processing

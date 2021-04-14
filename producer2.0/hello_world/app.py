@@ -4,8 +4,6 @@ Producer: S3 to SQS
 
 import boto3
 import json
-import sys
-import os
 
 S3 = boto3.resource('s3')
 BUCKET = 'unprocessed-bucket'
