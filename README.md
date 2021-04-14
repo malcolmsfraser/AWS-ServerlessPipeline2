@@ -15,7 +15,9 @@ The included command-line tool allows you up upload a local file directly from y
 
 **IAM Role** that allows access to all services
 
-**S3 bucket** which will store the target files and the results 
+**S3 bucket 2x** 
+* One bucket where we will be uploading any unprocessed images
+* A second bucket to store pocessed images and computer vision results 
 
 **Producer** lambda function that sends newly uploaded filenames to SQS
 
